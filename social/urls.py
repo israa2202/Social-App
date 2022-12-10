@@ -15,8 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from dwitter.urls import dashboard , register ,home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("dwitter.urls")),
+    path("dashboard/", dashboard, name="dashboard"),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path('oauth/', include('social_django.urls', namespace='social')), 
+    path("register/", register, name="register"),
+    path("home/", home, name="home"),
+
+    
+
+    
+
 ]
